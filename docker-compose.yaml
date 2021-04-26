@@ -26,7 +26,7 @@ services:
       - MODULE=search-module.xml
     volumes:
       - ./output/search-result:/usr/share/test-output
-  book-flight-module:
+  SSLSCan:
     image: johnarturlinder/selenium-docker
     depends_on:
       - chrome
@@ -34,6 +34,6 @@ services:
     environment:
       - HUB_HOST=hub
       - BROWSER=chrome
-      - MODULE=book-flight-module.xml
+      - MODULE=SSLScan.xml
     volumes:
       - ./output/book-result:/usr/share/test-output
