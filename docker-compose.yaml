@@ -16,7 +16,7 @@ services:
     environment:
       - HUB_HOST=hub
   search-module:
-    image: johndocker/selenium-docker
+    image: johnarturlinder/selenium-docker
     depends_on:
       - chrome
       - firefox
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./output/search-result:/usr/share/test-output
   book-flight-module:
-    image: johndocker/selenium-docker
+    image: johnarturlinder/selenium-docker
     depends_on:
       - chrome
       - firefox
