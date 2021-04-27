@@ -37,3 +37,14 @@ services:
       - MODULE=SSLScan.xml
     volumes:
       - ./output/book-result:/usr/share/test-output
+  SogetiTest:
+    image: johnarturlinder/selenium-docker
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - HUB_HOST=hub
+      - BROWSER=chrome
+      - MODULE=SogetiTest.xml
+    volumes:
+      - ./output/book-result:/usr/share/test-output
