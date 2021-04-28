@@ -35,7 +35,7 @@ services:
       - HUB_HOST=hub
       - BROWSER=chrome
       - MODULE=SSLScan.xml
-      volumes:
+    volumes:
       - ./output:/test-output
   SogetiTest:
     image: johnarturlinder/selenium-docker
