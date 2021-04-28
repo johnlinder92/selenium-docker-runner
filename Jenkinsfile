@@ -19,7 +19,7 @@ pipeline{
 	}
 	post{
 		always{
-            step([$class: 'Publisher', reportFilenamePattern: '/test-output/search-module'])
+            step([$class: 'Publisher', reportFilenamePattern: '/test-output'])
 			sh "docker-compose down"
 			sh "sudo rm -rf output/"
 		}
