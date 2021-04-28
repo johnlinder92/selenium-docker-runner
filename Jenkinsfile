@@ -19,7 +19,7 @@ pipeline{
 	}
 	post{
 		always{
-            step([$class: 'Publisher', reportFilenamePattern: '/test-results/testng-results.xml'])
+            step([$class: 'Publisher', reportFilenamePattern: '/home/ec2-user/workspace/run tests/output/test-results/testng-results.xml'])
 			sh "docker-compose down"
 			sh "sudo rm -rf output/"
 		}
