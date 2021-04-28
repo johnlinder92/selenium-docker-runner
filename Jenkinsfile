@@ -14,7 +14,7 @@ pipeline{
 		stage("Run Test"){
 			steps{
 				sh "docker-compose up search-module"
-				step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+				step([$class: 'Publisher', reportFilenamePattern: '/var/jenkins_home/workspace/testng-results.xml'])
 			}
 		}
 	}
