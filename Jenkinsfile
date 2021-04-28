@@ -14,12 +14,13 @@ pipeline{
 		stage("Run Test"){
 			steps{
 				sh "docker-compose up search-module"
+				step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
 			}
 		}
 	}
 	post{
 		always{
-            step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+
 			sh "docker-compose down"
 			sh "sudo rm -rf output/"
 		}
