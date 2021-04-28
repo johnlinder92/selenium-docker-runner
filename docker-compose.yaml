@@ -25,7 +25,7 @@ services:
       - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
-      - ./output:./test-output
+      - ./output:/test-output
   SSLScan:
     image: johnarturlinder/selenium-docker
     depends_on:
@@ -35,6 +35,7 @@ services:
       - HUB_HOST=hub
       - BROWSER=chrome
       - MODULE=SSLScan.xml
+      volumes:
       - ./output:/test-output
   SogetiTest:
     image: johnarturlinder/selenium-docker
