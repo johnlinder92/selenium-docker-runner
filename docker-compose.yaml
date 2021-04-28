@@ -24,7 +24,8 @@ services:
       - HUB_HOST=hub
       - BROWSER=firefox
       - MODULE=search-module.xml
-
+    volumes:
+      - ./output/search-result:/usr/share/udemy/test-output
   SSLScan:
     image: johnarturlinder/selenium-docker
     depends_on:
