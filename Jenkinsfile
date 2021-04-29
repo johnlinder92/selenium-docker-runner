@@ -31,7 +31,7 @@ pipeline{
                 ])
         }
         }
-    }
+
 	post{
 		always{
             step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
@@ -39,4 +39,4 @@ pipeline{
 			sh "sudo rm -rf output/"
 		}
 	}
-}}
+}
