@@ -20,6 +20,7 @@ pipeline{
 	}
 	post{
 		always{
+		    archiveArtifacts artifacts: 'output/**'
             step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
 			sh "docker-compose down"
 			sh "sudo rm -rf output/"
