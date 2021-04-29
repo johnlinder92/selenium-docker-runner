@@ -25,7 +25,7 @@ services:
       - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
-      - ./output/search-result:/usr/share/udemy/test-output
+      - ./output/search-result:/home/ec2-user/workspace/runtests/test-output
   SSLScan:
     image: johnarturlinder/selenium-docker
     depends_on:
@@ -36,7 +36,7 @@ services:
       - BROWSER=chrome
       - MODULE=SSLScan.xml
     volumes:
-      - ./output/SSLScan:/usr/share/udemy/test-output
+      - ./output/SSLScan:/home/ec2-user/workspace/runtests/test-output
   SogetiTest:
     image: johnarturlinder/selenium-docker
     depends_on:
@@ -47,4 +47,4 @@ services:
       - BROWSER=chrome
       - MODULE=SogetiTest.xml
     volumes:
-      - ./output/SogetiTest:/usr/share/udemy/test-output
+      - ./output/SogetiTest:/home/ec2-user/workspace/runtests/test-output
