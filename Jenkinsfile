@@ -11,33 +11,18 @@ pipeline{
 				sh "docker-compose up -d hub chrome firefox"
 			}
 		}
-        stage('Run tests in maven for report') {
 
-          agent {
-                         docker {
-                        image 'maven:3-alpine'
-                        sh "mvn clean test"
-                   }
-}
+		stage("Run Test"){
+			steps{
+				sh "docker-compose up search-module"
+			}
+		}
 	}
-	stage('reports') {
-        steps {
-        script {
-                allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'allure-results']]
-                ])
-        }
-        }
-
 	post{
 		always{
-            step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+            step([$class: 'Publisher', reportFilenamePattern: '**/test-output/testng-results.xml'])
 			sh "docker-compose down"
 			sh "sudo rm -rf output/"
 		}
 	}
-}}}
+}
