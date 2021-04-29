@@ -13,11 +13,12 @@ pipeline{
 		}
         stage('Run tests in maven for report') {
 
-         steps{
+          agent {
+                         docker {
                         image 'maven:3-alpine'
                         sh "mvn clean test"
                    }
-
+}
 	}
 	stage('reports') {
         steps {
