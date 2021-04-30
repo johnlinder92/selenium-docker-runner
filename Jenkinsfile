@@ -14,7 +14,7 @@ pipeline{
 
 		stage("Run Test"){
 			steps{
-				sh "docker-compose up search-module SogetiTest SSLScan"
+				sh "docker-compose up SogetiTest"
 			}
 		}
 	    stage("Archive results"){
@@ -26,7 +26,7 @@ pipeline{
 		}
 		stage('Allure report') {
             steps {
-            sh 'chmod -R o+xw output/allure-results'
+            sh 'chmod 777 output/allure-results'
             script {
                     allure([
                             includeProperties: false,
