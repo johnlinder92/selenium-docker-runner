@@ -17,7 +17,6 @@ pipeline{
 				sh "docker-compose up search-module SogetiTest SSLScan"
 			}
 		}
-	}
 	    stage("Archive results"){
 		steps{
 		    archiveArtifacts artifacts: 'output/**'
