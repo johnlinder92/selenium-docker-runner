@@ -22,8 +22,22 @@ pipeline{
 		always{
 		    archiveArtifacts artifacts: 'output/**'
             step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+            step {
+                            script {
+                                    allure([
+                                            includeProperties: false,
+                                            jdk: '',
+                                            properties: [],
+                                            reportBuildPolicy: 'ALWAYS',
+                                            results: [[path: '/output/allure-results']]
+                                    ])
+                            }
+
+                        }
+
 			sh "docker-compose down"
 			sh "sudo rm -rf output/"
+
 		}
 	}
 }
