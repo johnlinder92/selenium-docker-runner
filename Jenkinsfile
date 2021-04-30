@@ -14,7 +14,7 @@ pipeline{
 
 		stage("Run Test"){
 			steps{
-				sh "docker-compose up SogetiTest"
+				sh "docker-compose up SogetiTest SSLScan search-module"
 			}
 		}
 	    stage("Archive results"){
