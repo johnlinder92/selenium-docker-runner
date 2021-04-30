@@ -22,7 +22,7 @@ pipeline{
 		always{
 		    archiveArtifacts artifacts: 'output/**'
             step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
-            step {
+            steps {
                             script {
                                     allure([
                                             includeProperties: false,
