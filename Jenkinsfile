@@ -26,7 +26,7 @@ pipeline{
 		}
 		stage('Allure report') {
             steps {
-            sh 'chmod 777 output/allure-results'
+            sh 'sudo chmod -R o+xw output/allure-results'
             script {
                     allure([
                             includeProperties: false,
