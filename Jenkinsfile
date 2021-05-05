@@ -9,6 +9,9 @@ pipeline{
 		stage("Start Grid"){
 			steps{
 				sh "docker-compose up -d hub chrome firefox"
+				sh "docker-compose up -d --scale chrome=3"
+				sh "docker-compose up -d --scale firefox=2"
+
 			}
 		}
 
